@@ -3,6 +3,7 @@ import className from 'classnames';
 type IButtonProps = {
   xl?: boolean;
   children: string;
+  handleClick?: () => void;
 };
 
 const Button = (props: IButtonProps) => {
@@ -14,7 +15,7 @@ const Button = (props: IButtonProps) => {
   });
 
   return (
-    <div className={btnClass}>
+    <div className={btnClass} onClick={props.handleClick}>
       {props.children}
 
       <style jsx>
@@ -36,7 +37,7 @@ const Button = (props: IButtonProps) => {
           }
 
           .btn-primary:hover {
-            @apply bg-orange-300;
+            @apply bg-orange-300 cursor-pointer;
           }
         `}
       </style>
